@@ -1,0 +1,129 @@
+@import './variables.scss';
+@media (max-width: 876px) {
+    .header {
+        &__links {
+            display: none;
+        }
+    }
+}
+@media (max-width: 744px) {
+    .container {
+        max-width: 704px;
+    }
+    .header {
+        
+        &__links {
+            display: none;
+        }
+        &__selected {
+            display: none;
+        }
+
+        &__search {
+            display: none;
+        }
+        &__left-content{
+            width: 400px;
+        }
+        &__right-content {
+            width: 48px;
+        }
+    }
+    .mainBlock {
+        &__title {
+            font-size: 20px;
+        }
+        &__block { 
+            gap: 16px;
+        }
+    }
+    .card {
+        width: 224px;
+        height: 400px;
+        &__img {
+            width: 224px;
+            height: 324px;
+        }
+        &__title {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 140%;
+            letter-spacing: 0px;
+        }
+        &__stars {
+            margin-top: 6px;
+            img {
+                height: 13px;
+            }
+            span {
+                color: $grey-light;
+                font-size: 12px;
+                font-weight: 500;
+                line-height: 140%;
+                letter-spacing: 0px;
+                margin-left: 3px;
+
+            }
+        }
+    }
+    .navbar {
+        display: block;
+    }
+    
+    
+}
+@media (max-width: 428px) {
+    body {
+        margin-bottom: 80px;
+    }
+    .container {
+        width: 396px;
+    }
+
+    .header {
+        &__left-content{
+            max-width: 275px;
+        }
+    }
+
+    .mainBlock {
+        &__title {
+            font-size: 20px;
+            font-size: 16px;
+            letter-spacing: 0px;
+        }
+        &__block { 
+            gap: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+        }
+    }
+    .card {
+        width: 190px;
+        height: 351px;
+        &__img {
+            width: 190px;
+            height: 351px;
+        }
+        &__title {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 140%;
+            letter-spacing: 0px;
+        }
+        &__stars {
+            margin-top: 6px;
+            img {
+                height: 13px;
+            }
+            span {
+                color: $grey-light;
+                font-size: 12px;
+                font-weight: 500;
+                line-height: 140%;
+                letter-spacing: 0px;
+                margin-left: 3px;
+
+            }
+        }
+    }
+}

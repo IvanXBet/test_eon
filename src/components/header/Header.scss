@@ -1,0 +1,115 @@
+@import '../../style/variables';
+.header {
+    height: 64px;
+    background-color: #090808;
+    padding-top: 16px;
+    &__content{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__left-content {
+        width: 171px;
+        height: 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__humgurger {
+        cursor: pointer;
+        padding: 6px 3px;
+        span {
+            display: block;
+            width: 18px;
+            height: 2px;
+            background-color: $grey-light;
+            margin-top: 3px;
+            &:first-child {
+                margin-top: 0px;
+            }
+        }
+    }
+    &__links {
+        display: block;
+        width: 273px;
+        height: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__link{
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 140%;
+        color: $grey-dark;
+        &_activ {
+            color: $grey-light;
+        }
+    }
+
+    &__right-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 555px;
+        height: 32px;
+
+    }
+    &__search {
+        display: block;
+        width: 427px;
+        height: 32px;
+        padding: 7px 10px 8px 34px;
+        outline: none;
+        border: none;
+        border-radius: 4px;
+        background-color: $main-color;
+        color: $grey-light;
+
+        &:focus {
+            background-image: url(../../resources/icons/icon/search.svg);
+            background-position: 10px center;
+            background-repeat: no-repeat;
+            &::placeholder {
+                color: transparent
+              }
+        }
+
+        &::-webkit-search-cancel-button { 
+            -webkit-appearance: none; 
+            width: 16px; /* размеры кастомного крестика */
+            height: 16px;
+            background: url(../../resources/icons/icon/btn-close-searc.svg); /* новый вид крестика */
+            margin-right: 2px; /* его даже можно позиционировать */
+            &:hover {
+                background: url(../../resources/icons/icon/btn-close-searc-hover.svg);
+            }
+        }
+
+        &::placeholder {
+            text-align: center; 
+        }
+    }
+    &__selected {
+        cursor: pointer;
+        display: block;
+        
+    }
+    &__profil {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &-img {
+            width: 32px;
+            height: 32px;
+        }
+        &-arrow{
+            width: 24px;
+            height: 24px;
+            padding-left: 7px;
+        }
+    }
+}
