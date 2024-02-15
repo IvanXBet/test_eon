@@ -5,6 +5,8 @@ import Header from '../header/Header';
 
 import HomePage from '../Pages/homePage';
 import SerachPage from '../Pages/SearchPage';
+import FilmPage from '../Pages/filmPage';
+import SeriesPage from '../Pages/seriesPage';
 
 
 import NavBar from '../navBar/NavBar';
@@ -24,8 +26,10 @@ function App() {
 	const [modalData, setModalData] = useState(null);
 	const [modalActive, setModalActive] = useState(false)
 	const [isSearch, setIsSearch] = useState(false);
-	const {loading, error, getFilm} = useEonTestServise();
+	
+	const [activeFilter, setFilter] = useState('main');
 
+	const {loading, error, getFilm} = useEonTestServise();
 
 	useEffect(() => {
 		getFilm(modalActive)
@@ -43,12 +47,17 @@ function App() {
 		<Router>
 			<div className="App">
 
-				<Header setIsSearch={setIsSearch} setData = {setData}/>
+				<Header setIsSearch={setIsSearch} setData = {setData} setFilter={setFilter}/>
 				<div className="main">
 					<div className="container">
 					<Routes>
 						<Route path='/' element={<HomePage isSearch={isSearch}  setModalActive = {setModalActive}/>}/>
+
 						<Route path='/search' element={<SerachPage isSearch={isSearch} setModalActive = {setModalActive} data={data} />}/>
+
+						<Route path='/films' element={<FilmPage />}/>
+
+						<Route path='/series' element={<SeriesPage />}/>
 					</Routes>
 					
 					</div>
@@ -56,7 +65,7 @@ function App() {
 
 				<NavBar/>
 				{modalActive ? <Modal active={modalActive} setActive={setModalActive} >
-				<ModalContent modalData={modalData} setModalActive={setModalActive}/>
+					<ModalContent modalData={modalData} setModalActive={setModalActive}/>
 							
 						
 				</Modal> : <div></div>}

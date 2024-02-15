@@ -1,5 +1,4 @@
-import { useState, createContext } from 'react';
-import {Link, useNavigate} from 'react-router-dom';
+import {Link, useNavigate, NavLink} from 'react-router-dom';
 import './Header.scss';
 import logo from '../../resources/icons/Logo.svg';
 import selected from '../../resources/icons/icon/selected.svg'
@@ -8,10 +7,10 @@ import arrow from '../../resources/icons/icon/bottom-arrow.svg'
 
 import useEonTestServise from '../../services/eonTestServices';
 
+import { filterTyps } from './filterTyps';
 
 
-
-const Header = ({setData, setIsSearch}) => {
+const Header = ({setData, setIsSearch, setFilter}) => {
 
 	const {getFilms} = useEonTestServise();
 
@@ -37,6 +36,10 @@ const Header = ({setData, setIsSearch}) => {
         onSerch(e.target.value.trim())
     }
 
+    const onSwitchType = (type) => {
+        setFilter(type)
+    }
+
     
     return (
             <header className="header">
@@ -55,9 +58,37 @@ const Header = ({setData, setIsSearch}) => {
                         
                     </div>
                     <div className="header__links">
-                        <a  className="header__link" href="##">Главная</a>
-                        <a  className="header__link header__link_activ" href="##">Фильмы</a>
-                        <a  className="header__link" href="##">Сериалы</a>
+
+                        {filterTyps.map((item, i) => {
+                           if(item.type !== 'search') {
+                                return (
+                                    <NavLink 
+                                        onClick={() => onSwitchType(item.type)}
+                                        style={({isActive})=> ({color: isActive ? '#FFFFFF' : '#737373'})} 
+                                        to={item.to}
+                                        key={i}
+                                        data-type={item.type} 
+                                        className="header__link" >{item.text}</NavLink>
+                                )
+                           }
+                        })}
+                    
+                    {/* <NavLink end
+                        style={({isActive})=> ({color: isActive ? '#FFFFFF' : '#737373'})} 
+                        to='/' 
+                        className="header__link" >Главная</NavLink>
+
+                    <NavLink 
+                        style={({isActive})=> ({color: isActive ? '#FFFFFF' : '#737373'})}
+                        to='/films' 
+                        className="header__link">Фильмы</NavLink>  
+
+                    <NavLink 
+                        style={({isActive})=> ({color: isActive ? '#FFFFFF' : '#737373'})}
+                        to='/series' 
+                        className="header__link">Сериалы</NavLink>  */}
+
+                        
                     </div>
                     <div className="header__right-content">
                     
@@ -66,6 +97,7 @@ const Header = ({setData, setIsSearch}) => {
                         
 
                         <img src={selected} alt="selected" className="header__selected"/>
+
                         <div className="header__profil">
                             <div className="header__profil-img">
                                 <img src={profil} alt="profil"/>
