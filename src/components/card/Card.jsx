@@ -5,10 +5,11 @@ import './Card.scss';
 import Spiner from '../spiner/spiner'
 import useEonTestServise from '../../services/eonTestServices';
 
-const Card = ({setActive, dataFilm}) => {
+const Card = ({setModalActive, dataFilm}) => {
     const {loading, error} = useEonTestServise();
     return(
-        <div  className="card" onClick={() => {setActive(dataFilm.id)}}>
+        <div className="card"  
+            onClick={() => {setModalActive(dataFilm.id)}}>
             {loading ? <Spiner/> : <Content  dataFilm = {dataFilm}/>}
         </div>
     )
@@ -21,7 +22,7 @@ const Content = ({dataFilm}) => {
             <h2 className="card__title">{dataFilm.title} </h2>
             <div className="card__stars">
                 <img src={star} alt="star"/>
-                <span>9.0</span>
+                <span>{dataFilm.ratings ? dataFilm.ratings : null}</span>
             </div>
         </>
     )

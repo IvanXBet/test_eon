@@ -1,10 +1,11 @@
-import MainBlock from '../mainBlock/MainBlock';
+import './MainBlock.scss';
 
-const FilmPage = ({setModalActive, isSearch}) => {
+const FilmPage = ({setModalActive}) => {
     return (
-        <>
-            <MainBlock categoris={'Сериалы'} setActive={setModalActive}/>
-        </>
+        <div className="mainBlock">
+            <h1 className="mainBlock__title">Сериалы</h1>
+        </div>
+            
     )
 }
 

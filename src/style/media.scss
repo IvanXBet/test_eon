@@ -23,7 +23,7 @@
             display: none;
         }
         &__left-content{
-            width: 400px;
+            width: 61.5%;
         }
         &__right-content {
             width: 48px;
@@ -34,6 +34,7 @@
             font-size: 20px;
         }
         &__block { 
+            grid-template-columns: repeat(auto-fit, 224px);
             gap: 16px;
         }
     }
@@ -87,6 +88,7 @@
     }
 
     .mainBlock {
+        margin: 0;
         &__title {
             font-size: 20px;
             font-size: 16px;
@@ -94,7 +96,7 @@
         }
         &__block { 
             gap: 16px;
-            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            grid-template-columns: repeat(auto-fit, 190px);
         }
     }
     .card {

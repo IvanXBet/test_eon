@@ -4,6 +4,7 @@
     background-color: #090808;
     padding-top: 16px;
     &__content{
+        margin: 0 20px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -59,22 +60,24 @@
     }
     &__search {
         display: block;
-        width: 427px;
+        width: 77%;
         height: 32px;
-        padding: 7px 10px 8px 34px;
+        
         outline: none;
         border: none;
         border-radius: 4px;
         background-color: $main-color;
         color: $grey-light;
-
         &:focus {
             background-image: url(../../resources/icons/icon/search.svg);
             background-position: 10px center;
             background-repeat: no-repeat;
-            &::placeholder {
-                color: transparent
-              }
+            padding: 7px 10px 8px 34px;
+        }
+        .active {
+            background-image: url(../../resources/icons/icon/search.svg);
+            background-position: 10px center;
+            background-repeat: no-repeat;
         }
 
         &::-webkit-search-cancel-button { 

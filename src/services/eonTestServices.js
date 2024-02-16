@@ -9,6 +9,7 @@ const  useEonTestServise = () => {
 
     const getFilms = async (filmName) => {
         const data = await request(`http://www.omdbapi.com/?&apikey=72305922&s=${filmName}&type="movie"`);
+        console.log(data)
         return data.Search.map(item => _transform(item)); 
     }
 

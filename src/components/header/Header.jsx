@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import {Link, useNavigate, NavLink} from 'react-router-dom';
 import './Header.scss';
 import logo from '../../resources/icons/Logo.svg';
@@ -11,10 +12,11 @@ import { filterTyps } from './filterTyps';
 
 
 const Header = ({setData, setIsSearch, setFilter}) => {
-
+   
 	const {getFilms} = useEonTestServise();
 
     const navigate = useNavigate();
+
 
 	const onSerch = (serchName) => {
         getFilms(serchName).then(data => onRequset(data))
@@ -33,6 +35,7 @@ const Header = ({setData, setIsSearch, setFilter}) => {
             return
         }
         navigate("/search");
+
         onSerch(e.target.value.trim())
     }
 
@@ -40,6 +43,7 @@ const Header = ({setData, setIsSearch, setFilter}) => {
         setFilter(type)
     }
 
+    
     
     return (
             <header className="header">
@@ -72,31 +76,18 @@ const Header = ({setData, setIsSearch, setFilter}) => {
                                 )
                            }
                         })}
+
                     
-                    {/* <NavLink end
-                        style={({isActive})=> ({color: isActive ? '#FFFFFF' : '#737373'})} 
-                        to='/' 
-                        className="header__link" >Главная</NavLink>
-
-                    <NavLink 
-                        style={({isActive})=> ({color: isActive ? '#FFFFFF' : '#737373'})}
-                        to='/films' 
-                        className="header__link">Фильмы</NavLink>  
-
-                    <NavLink 
-                        style={({isActive})=> ({color: isActive ? '#FFFFFF' : '#737373'})}
-                        to='/series' 
-                        className="header__link">Сериалы</NavLink>  */}
-
-                        
                     </div>
                     <div className="header__right-content">
                     
-                        <input onChange={(e) => {onChangeInput(e)}}  className="header__search" name='search' type="search" placeholder="Поиск по сайту"/>
+                        <input onChange={(e) => {onChangeInput(e)}} className="header__search" name='search' type="search" placeholder="Поиск по сайту"/>
                     
                         
-
-                        <img src={selected} alt="selected" className="header__selected"/>
+                        <Link to='/selected'>
+                            <img src={selected} alt="selected" className="header__selected"/>
+                        </Link>
+                        
 
                         <div className="header__profil">
                             <div className="header__profil-img">

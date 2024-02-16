@@ -11,13 +11,19 @@
         display: flex;
     }
     &__item {
+        text-decoration: none;
         padding-top: 17px;
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         width: 100%;
     }
     &__img {
+        display: flex;
+       
         height: 20px;
+        width: 20px;
     }
     &__text {
         margin-top: 5px;        
@@ -26,9 +32,6 @@
         line-height: 10px;
         letter-spacing: 0.5px;
         text-align: center;
-        color: $grey-dark;
-        &_activ {
-            color: $grey-light;
-        }
+       
     }
 }
